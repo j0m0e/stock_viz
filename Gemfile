@@ -42,6 +42,8 @@ gem 'pry-rails', group: :development
 
 gem 'yahoo_finance'
 
+gem 'json', '~> 1.8.1'
+
 
 group :development do
   gem 'rspec-rails'

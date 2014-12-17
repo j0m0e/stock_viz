@@ -40,7 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry-rails', group: :development
 
-gem 'yahoo_finance'
+gem 'yahoo-finance'
 
 gem 'json', '~> 1.8.1'
 

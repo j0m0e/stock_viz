@@ -14,3 +14,32 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(function(){
+	console.log('testing yo');
+	$('.search').on('click','#stock_search', getTicker);
+});
+
+
+var getTicker = function(){
+	console.log(this);
+	var input = $("input[name='search']").val();
+	console.log(input);
+	$("input[name='search']").val('');
+	//turn input into :ticker
+	var stockInfo = ($.get('/get_stock/' + input)); //global var for now to test, turn local when done
+	stockInfo.done(function(data){
+	var newDiv = $('<div>').addClass(input).addClass('stock');
+	var paragraph = $('<p>').text(data.name);
+	paragraph.appendTo(newDiv);
+	newDiv.appendTo('#results');
+})};
+
+
+
+//stockInfo.done(function(data){
+//console.log(data.name)
+//})
+
+

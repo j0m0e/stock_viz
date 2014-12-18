@@ -9,7 +9,7 @@
 <body>
 
 <% if session[:current_user_id] %>
-  	Welcome, <%= @username %>
+  	Welcome, <%= User.find(session[:current_user_id]).username.capitalize %>
   	<%= link_to "LOG OUT", sessions_path, method: :delete %>
   <% else %>
   	<%= link_to "SIGN UP", new_user_path %> |

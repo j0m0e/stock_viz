@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   
 
   def index
+    @username = User.find(session[:current_user_id]).username.capitalize
   end
 
  

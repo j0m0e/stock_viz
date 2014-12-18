@@ -7,16 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-BODY!
-
-		<%= link_to "SIGN UP", new_user_path %> |
-<%= link_to "LOG IN", login_path %> |
-<%= link_to "LOG OUT", sessions_path, method: :delete %>
 
 <% if session[:current_user_id] %>
   	Welcome, <%= User.find(session[:current_user_id]).username.capitalize %>
-  	<% end %>
+  	<%= link_to "LOG OUT", sessions_path, method: :delete %>
+  <% else %>
+  	<%= link_to "SIGN UP", new_user_path %> |
+		<%= link_to "LOG IN", login_path %> |
+<% end %>
 
 
 </body>
 </html>
+
+	

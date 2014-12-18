@@ -1,0 +1,12 @@
+<h2>SIGN UP, BE MY FRIEND!!!</h2>
+
+<%= form_for @user do |f| %>
+	
+	<%= f.text_field :username, placeholder: "Username" %> <br>
+
+	<%= f.password_field :password, placeholder: "Password" %> <br>
+	
+	<%= f.password_field :password_confirmation, placeholder: "Confirm Your Password" %> <br>
+	<%= f.submit "Sign UP!" %>
+
+<% end %>

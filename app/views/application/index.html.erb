@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StockVizApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if session[:current_user_id] %>
+  	Welcome, <%= User.find(session[:current_user_id]).username.capitalize %>
+  	<%= link_to "LOG OUT", sessions_path, method: :delete %>
+  <% else %>
+  	<%= link_to "SIGN UP", new_user_path %> |
+		<%= link_to "LOG IN", login_path %> |
+<% end %>
+
+
+</body>
+</html>
+
+	

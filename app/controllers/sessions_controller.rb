@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
 
 	def create
 		user = User.find_by(username: params[:username])
-		if user.authenticate(params[:password])
-			session[:current_user] = user.id
+		if user && user.authenticate(params[:password])
+			session[:current_user_id] = user.id
 			redirect_to root_path
 		else
 			render new
@@ -15,9 +15,14 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:current_user] = nil
+		session[:current_user_id] = nil
 		redirect_to login_path
 	end
 
+	private 
+
+	def session_params
+		params.require(:session).permit(:username, :password)
+	end
 
 end

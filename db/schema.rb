@@ -11,24 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217020006) do
+ActiveRecord::Schema.define(version: 20141217000125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "portfolios", force: true do |t|
-    t.string  "name"
-    t.integer "user_id"
-  end
-
-  create_table "portfolios_stocks", id: false, force: true do |t|
-    t.integer "portfolio_id", null: false
-    t.integer "stock_id",     null: false
-  end
-
   create_table "stocks", force: true do |t|
-    t.string "name"
-    t.string "symbol"
+    t.string  "name"
+    t.string  "symbol"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

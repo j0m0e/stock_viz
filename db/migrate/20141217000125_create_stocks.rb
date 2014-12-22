@@ -3,6 +3,7 @@ class CreateStocks < ActiveRecord::Migration
     create_table :stocks do |t|
     	t.string :name
     	t.string :symbol
+    	t.references :user
     	
     end
   end

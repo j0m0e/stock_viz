@@ -18,28 +18,45 @@
 
 $(function(){
 	console.log('testing yo');
-	$('.search').on('click','#stock_search', getTicker);
+	$('.search').on('click','#stock_search', getInput);
+	$('#results').on('click', '.choose_search_result', addStock);
 });
 
 
-var getTicker = function(){
-	console.log(this);
+var getInput = function(){
 	var input = $("input[name='search']").val();
-	console.log(input);
 	$("input[name='search']").val('');
 	//turn input into :ticker
-	var stockInfo = ($.get('/get_stock/' + input)); //global var for now to test, turn local when done
+	var stockInfo = ($.get('/get_stock/' + input)); 
 	stockInfo.done(function(data){
-	var newDiv = $('<div>').addClass(input).addClass('stock');
-	var paragraph = $('<p>').text(data.name);
-	paragraph.appendTo(newDiv);
-	newDiv.appendTo('#results');
+		$('#results').empty();
+		var heading = $('<h3>').text("Search Result:");
+		var newDiv = $('<div>').addClass('search_result');
+		var paragraphName = $('<p>').text(data.name).addClass('stock_name');
+		var addStockButton = $('<button>').text("Add To Your List").addClass('choose_search_result');
+		var paragraphSymbol = $('<p>').text(data.symbol).addClass('stock_symbol');
+		paragraphName.appendTo(newDiv);
+		addStockButton.appendTo(newDiv);
+		paragraphSymbol.prependTo(newDiv);
+		newDiv.appendTo('#results');
+		heading.prependTo('#results');
 })};
 
 
 
-//stockInfo.done(function(data){
-//console.log(data.name)
-//})
+var addStock = function(){
+	var stockName = $('.stock_name').text();
+	var stockSymbol = $('.stock_symbol').text();
+	var newStock = {stock: {name: stockName, symbol: stockSymbol}};
+	$.post('/stocks', newStock).done(function(stock){
+		renderStock(stock);
+	});
+};
+
+var renderStock = function(stock){
+	var stockListItem = $('<li>').text(stock.symbol + ": " + stock.name);
+	stockListItem.addClass('stock_list_item');
+	stockListItem.appendTo('.stock_list');
+};
 
 

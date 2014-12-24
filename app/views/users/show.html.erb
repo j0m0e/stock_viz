@@ -1,13 +1,21 @@
 
   	
-  <h2>	<%= @user.username.capitalize %>'s Stocks and Portfolios </h2>
+  <div class= "container">
+  	<h2 id="<%= @user.id %>">	<%= @user.username.capitalize %>'s Stocks and Portfolio </h2>
 
-  <div class = "search">
-  	Search for stock<br>
-  	<input type="text" placeholder="Enter a ticker symbol here" name="search"> <br>
-  	<button id="stock_search">Click me now</button>
-	</div>
-  	<!--  make a click even that refers to a function.  that function will take the search text value and input that into :ticker for the json route-->
+  	<div class = "search">
+  		Search for stock<br>
+  		<input type="text" placeholder="Enter a ticker symbol here" name="search"> 
+  		<br>
+  		<button id="stock_search">Click me now</button>
+		</div>
+  	
+  	
 
-
-  <div id="results"><h3>Stocks</h3></div>
+  	<div id="results"></div>
+  	
+  	<div id="stock_list_container">
+  		<h3 class='stock_list_heading'>Portfolio</h3>
+  		<ul class="stock_list"></ul>
+  	</div>
+</div>

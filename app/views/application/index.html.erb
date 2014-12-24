@@ -8,13 +8,22 @@
 </head>
 <body>
 
-<% if session[:current_user_id] %>
-  	Welcome, <%= User.find(session[:current_user_id]).username.capitalize %>
-  	<%= link_to "LOG OUT", sessions_path, method: :delete %>
-  <% else %>
-  	<%= link_to "SIGN UP", new_user_path %> |
-		<%= link_to "LOG IN", login_path %> |
-<% end %>
+
+  <div class="index container">
+    
+    <div class="index_header">stockViz</div>
+    
+    <div class="index_links">
+      <% if session[:current_user_id] %>
+        Hello, <%= User.find(session[:current_user_id]).username.capitalize %> <br>
+        <%= link_to "LOG OUT", sessions_path, method: :delete %>
+      <% else %>
+        <%= link_to "SIGN UP", new_user_path %> 
+        <%= link_to "LOG IN", login_path %> 
+      <% end %>
+    </div>
+  
+  </div>
 
 
 </body>

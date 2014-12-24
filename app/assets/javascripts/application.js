@@ -17,6 +17,7 @@
 
 
 $(function(){
+	loadStocks();
 	console.log('testing yo');
 	$('.search').on('click','#stock_search', getInput);
 	$('#results').on('click', '.choose_search_result', addStock);
@@ -45,18 +46,40 @@ var getInput = function(){
 
 
 var addStock = function(){
+	//$('#results').empty();
 	var stockName = $('.stock_name').text();
 	var stockSymbol = $('.stock_symbol').text();
 	var newStock = {stock: {name: stockName, symbol: stockSymbol}};
 	$.post('/stocks', newStock).done(function(stock){
 		renderStock(stock);
 	});
+	$('#results').empty();
+
 };
 
 var renderStock = function(stock){
-	var stockListItem = $('<li>').text(stock.symbol + ": " + stock.name);
+	var stockListItem = $('<li>').text("Stock Symbol: " + stock.symbol + "Company Name: " + stock.name);
 	stockListItem.addClass('stock_list_item');
 	stockListItem.appendTo('.stock_list');
 };
+
+var loadStocks = function(){
+	$.get('/stocks').done(function(stocks){
+		stocks.forEach(function(stock){
+			if (stock.user_id == $("h2").attr('id')){
+				makeStockTable(stock);
+			}
+		});
+	});
+};
+
+// a list for now but will become a table  
+var makeStockTable = function(stock){
+	var stockListItem = $('<li>').text("Stock Symbol: " + stock.symbol + " " + "Company Name: " + stock.name);
+	stockListItem.css('font-weight', 'bold');
+	stockListItem.appendTo('.stock_list');
+};
+
+
 
 

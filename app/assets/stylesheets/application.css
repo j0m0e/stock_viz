@@ -29,7 +29,7 @@ body {
 	text-align: center;
 	color: white;
 	font-size: 110px;
-	letter-spacing: 4px;
+	letter-spacing: 0.15em;
 	font-weight: 600;
 	padding: 100px;
 }
@@ -46,7 +46,6 @@ body {
 	text-align: center;
 	font-size: 25px;
 	margin-top: 0px;
-	line-height: 250%;
 }
 
 .index_links a {
@@ -89,7 +88,7 @@ legend {
 	color: white;
 	text-align: center;
 	font-weight: 400;
-	letter-spacing: 1px;
+	letter-spacing: 0.05em;
 }
 
 fieldset input {

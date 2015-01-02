@@ -1,10 +1,12 @@
-<h2>LOG IN NOW NOW NOW NOW! TIME TIME TIME!</h2>
+
 
 <%= form_tag login_path do %>
-	<%= text_field_tag :username, nil,  placeholder: "Username" %> <br>
+	<%= field_set_tag "Login" do %>
+		<%= text_field_tag :username, nil,  placeholder: "Username" %> <br>
 
-	<%= password_field_tag :password, nil, placeholder: "Password" %> <br>
-	<%= submit_tag 'LOG IN!' %>
+		<%= password_field_tag :password, nil, placeholder: "Password" %> <br>
+		<%= submit_tag 'LOG IN!', class: "submit" %>
+	<% end %>
 
 
 

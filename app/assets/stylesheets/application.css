@@ -16,6 +16,7 @@
 
 body {
 	background: #F0FFF0;
+	font-family: "Courier New", Courier, monospace;
 }
 
  /* 
@@ -29,7 +30,6 @@ body {
 	color: white;
 	font-size: 110px;
 	letter-spacing: 4px;
-	font-family: Courier New;
 	font-weight: 600;
 	padding: 100px;
 }
@@ -51,7 +51,6 @@ body {
 
 .index_links a {
 	background: black;
-	font-family: Courier New;
 	text-decoration: none;
 	color: white;
 	padding: 15px;
@@ -86,7 +85,6 @@ fieldset {
 legend {
 	padding-top: 50px;
 	margin-bottom: 10px;
-	font-family: Courier New,Arial, Sans-serif;
 	font-size: 25px;
 	color: white;
 	text-align: center;

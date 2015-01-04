@@ -14,32 +14,130 @@
  *= require_self
  */
 
-.index_header {
+body {
+	background: #F0FFF0;
+	font-family: "Courier New", Courier, monospace;
+}
+
+ /* 
+ 
+ ========Front Page======== 
+
+ */
+
+.index_header h1{
 	text-align: center;
-	background: black;
 	color: white;
 	font-size: 110px;
-	letter-spacing: 4px;
-	font-family: Courier New;
+	letter-spacing: 0.15em;
 	font-weight: 600;
 	padding: 100px;
-	margin: 100px -20px 100px -20px;
-
 }
+
+.index_header {
+	background: black;
+	margin: 100px -20px 100px -20px;
+	height: 350px;
+}
+
+
 
 .index_links {
 	text-align: center;
 	font-size: 25px;
 	margin-top: 0px;
-	line-height: 250%;
+	line-height: 2em;
 }
 
 .index_links a {
-	background: red;
+	background: black;
 	text-decoration: none;
+	color: white;
 	padding: 15px;
 	border-radius: 10px;
 	margin: auto 20px;
 }
+
+.index_links a:hover {
+	background: green;
+}
+
+
+
+/*
+	Sign Up and Login
+*/
+
+form {
+	padding-top: 100px;
+}
+
+fieldset {
+	margin: 0 auto;
+	width: 200px;
+	border: 2px solid black;
+	background: black;
+	border-radius: 15px;
+	padding: 20px;
+
+}
+
+legend {
+	padding-top: 50px;
+	margin-bottom: 10px;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+}
+
+fieldset input {
+	padding: 10px;
+	width: 131px;
+	display: block;
+	border-radius: 5px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	font-size: 15px;
+}
+
+.submit {
+	width: 95px;
+}
+
+
+/*
+		User  Page
+*/
+
+#show-pe-ratio {
+	/*visibility: hidden;*/
+}
+
+.pe-ratio-container {
+	background: wheat;
+	border: 1px solid gray;
+	padding: 10px;
+	visibility: hidden;
+}
+
+.pe-ratio {
+
+	height: 80px;
+	width: 80px;
+	border: 1px solid black;
+	border-radius: 80px;
+						
+}
+
+.text {
+  height: 80px;
+  width: 100px;
+	text-align:center;
+	display: inline-block;
+	margin: 0 15px;
+}
+
 
 

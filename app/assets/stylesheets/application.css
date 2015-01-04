@@ -46,6 +46,7 @@ body {
 	text-align: center;
 	font-size: 25px;
 	margin-top: 0px;
+	line-height: 2em;
 }
 
 .index_links a {
@@ -104,3 +105,39 @@ fieldset input {
 .submit {
 	width: 95px;
 }
+
+
+/*
+		User  Page
+*/
+
+#show-pe-ratio {
+	/*visibility: hidden;*/
+}
+
+.pe-ratio-container {
+	background: wheat;
+	border: 1px solid gray;
+	padding: 10px;
+	visibility: hidden;
+}
+
+.pe-ratio {
+
+	height: 80px;
+	width: 80px;
+	border: 1px solid black;
+	border-radius: 80px;
+						
+}
+
+.text {
+  height: 80px;
+  width: 100px;
+	text-align:center;
+	display: inline-block;
+	margin: 0 15px;
+}
+
+
+

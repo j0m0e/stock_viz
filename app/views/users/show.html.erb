@@ -3,12 +3,14 @@
   <div class= "container">
   	<h2 id="<%= @user.id %>">	<%= @user.username.capitalize %>'s Stocks and Portfolio </h2>
 
+    <% if session[:current_user_id] === @user.id %>
   	<div class = "search">
   		Search for stock<br>
   		<input type="text" placeholder="Enter a ticker symbol here" name="search"> 
   		<br>
   		<button id="stock_search">Click me now</button>
 		</div>
+    <% end %>
   	
   	
 

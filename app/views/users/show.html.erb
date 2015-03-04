@@ -5,16 +5,18 @@
 
     <% if session[:current_user_id] === @user.id %>
   	<div class = "search">
-  		Search for stock<br>
+  		Search For Stocks To Add To Your Portfolio<br>
   		<input type="text" placeholder="Enter a ticker symbol here" name="search"> 
-  		<br>
-  		<button id="stock_search">Click me now</button>
+  		<button id="stock_search">Search</button>
+
+      <div id="results"></div>
+
 		</div>
     <% end %>
   	
   	
 
-  	<div id="results"></div>
+  	
   	
   	<div id="stock_list_container">
   		<h3 class='heading'>Portfolio</h3>

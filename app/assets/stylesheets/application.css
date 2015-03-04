@@ -111,8 +111,12 @@ fieldset input {
 		User  Page
 */
 
+.container {
+	margin: 15px;
+}
+
 #show-pe-ratio {
-	/*visibility: hidden;*/
+	visibility: hidden;
 }
 
 .pe-ratio-container {
@@ -139,5 +143,23 @@ fieldset input {
 	margin: 0 15px;
 }
 
+.search {
+	margin: 15px;
+	padding: 10px;
+	border: solid black 1px;
+	border-radius: 7px;
+	width: 500px;
+}
+
+#results {
+	margin: 50px;
+}
+
+.search_result {
+	padding: 0 10px 10px 10px;
+	border: solid black 1px;
+	border-radius: 7px;
+	width: 300px;
+}
 
 

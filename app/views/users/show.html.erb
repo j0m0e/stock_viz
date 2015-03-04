@@ -1,7 +1,19 @@
 
   	
   <div class= "container">
-  	<h2 id="<%= @user.id %>">	<%= @user.username.capitalize %>'s Stocks and Portfolio </h2>
+    <header>
+      <h2 id="<%= @user.id %>">	<%= @user.username.capitalize %>'s Stocks and Portfolio </h2>
+      <% if session[:current_user_id] %>
+        <span id = "logout-header">
+          <%= link_to "LOG OUT", sessions_path, method: :delete %>
+        </span>
+      <% end %>
+    </header>
+
+     
+       
+        
+
 
     <% if session[:current_user_id] === @user.id %>
   	<div class = "search">
@@ -21,11 +33,11 @@
   	<div id="stock_list_container">
   		<h3 class='heading'>Portfolio</h3>
   		<ul class="stock_list"></ul>
-  	</div>
-    
-    <p>
-      <button id="show-pe-ratio">PE Ratio</button>
-    </p>
+  	
+      <p class= "feature-buttons">
+        <button id="show-pe-ratio">P/E Ratio</button>
+      </p>
+    </div>
     
     <div class= "pe-ratio-container"></div>
 

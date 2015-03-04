@@ -115,6 +115,35 @@ fieldset input {
 	margin: 15px;
 }
 
+h2 {
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 0px;
+}
+
+header {
+	/*background: lightslategrey;*/
+	color: white;
+	margin: -15px -25px 40px -25px;
+	background: #50506C;
+	height: 66px;
+	line-height: 66px;
+}
+
+#logout-header {
+	float: right;
+	margin-right: 20px
+
+}
+
+#logout-header a {
+	text-decoration: none;
+}
+
+#logout-header a:visited {
+	color: white;
+}
+
 #show-pe-ratio {
 	visibility: hidden;
 }
@@ -144,8 +173,7 @@ fieldset input {
 }
 
 .search {
-	margin: 15px;
-	padding: 10px;
+	padding: 20px;
 	border: solid black 1px;
 	border-radius: 7px;
 	width: 500px;
@@ -161,5 +189,6 @@ fieldset input {
 	border-radius: 7px;
 	width: 300px;
 }
+
 
 

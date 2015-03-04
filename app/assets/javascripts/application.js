@@ -25,28 +25,34 @@ $(function(){
 	$('#show-pe-ratio').click(getPeRatios);
 });
 
-
+// Retrieves user input to search for stock 
 var getInput = function(){
 	var input = $("input[name='search']").val();
 	$("input[name='search']").val('');
-	//turn input into :ticker
+	// turn input into :ticker
 	var stockInfo = ($.get('/get_stock/' + input)); 
+	// Result from API search
 	stockInfo.done(function(data){
-		$('#results').empty();
-		var heading = $('<h3>').text("Search Result:");
+		searchResult(data);
+})};
+
+// Attaches API Search Result to the DOM
+var searchResult = function(data){
+	$('#results').empty();
+		var heading = $('<h3>').text("Result:");
 		var newDiv = $('<div>').addClass('search_result');
 		var paragraphName = $('<p>').text(data.name).addClass('stock_name');
-		var addStockButton = $('<button>').text("Add To Your List").addClass('choose_search_result');
+		var addStockButton = $('<button>').text("Add To Portfolio").addClass('choose_search_result');
 		var paragraphSymbol = $('<p>').text(data.symbol).addClass('stock_symbol');
 		paragraphName.appendTo(newDiv);
 		addStockButton.appendTo(newDiv);
 		paragraphSymbol.prependTo(newDiv);
 		newDiv.appendTo('#results');
-		heading.prependTo('#results');
-})};
+		heading.prependTo('.search_result');
+};
 
 
-
+// Adds stock to DB
 var addStock = function(){
 	var stockName = $('.stock_name').text();
 	var stockSymbol = $('.stock_symbol').text();
@@ -55,7 +61,6 @@ var addStock = function(){
 		makeStockTable(stock);
 	});
 	$('#results').empty();
-
 };
 
 
@@ -70,13 +75,19 @@ var loadStocks = function(){
 	});
 };
 
-// a list for now but will become a table  
+
+
+
+// Adds list item(s) to Users stock list (list for now, will become a row in table)  
 var makeStockTable = function(stock){
-	var stockListItem = $('<li>').text("Stock Symbol: " + stock.symbol + " " + "Company Name: " + stock.name);
+	var stockListItem = $('<li>').text(stock.name + "(" + stock.symbol + ")");
+	var peRatioButton = $('#show-pe-ratio');
 	stockListItem.addClass(stock.symbol);
 	stockListItem.css('font-weight', 'bold');
 	stockListItem.appendTo('.stock_list');
+	peRatioButton.css({ 'visibility': 'visible'});
 };
+
 
 var testThis = function(){
 	console.log("i got clicked");
@@ -132,4 +143,5 @@ var colorMyRatios = function(stock, ratioDiv, textDiv){
 		ratioDiv.css({background:'red'});
 	}
 };
+
 

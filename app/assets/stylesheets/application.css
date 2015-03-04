@@ -111,8 +111,41 @@ fieldset input {
 		User  Page
 */
 
+.container {
+	margin: 15px;
+}
+
+h2 {
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 0px;
+}
+
+header {
+	/*background: lightslategrey;*/
+	color: white;
+	margin: -15px -25px 40px -25px;
+	background: #50506C;
+	height: 66px;
+	line-height: 66px;
+}
+
+#logout-header {
+	float: right;
+	margin-right: 20px
+
+}
+
+#logout-header a {
+	text-decoration: none;
+}
+
+#logout-header a:visited {
+	color: white;
+}
+
 #show-pe-ratio {
-	/*visibility: hidden;*/
+	visibility: hidden;
 }
 
 .pe-ratio-container {
@@ -137,6 +170,24 @@ fieldset input {
 	text-align:center;
 	display: inline-block;
 	margin: 0 15px;
+}
+
+.search {
+	padding: 20px;
+	border: solid black 1px;
+	border-radius: 7px;
+	width: 500px;
+}
+
+#results {
+	margin: 50px;
+}
+
+.search_result {
+	padding: 0 10px 10px 10px;
+	border: solid black 1px;
+	border-radius: 7px;
+	width: 300px;
 }
 
 

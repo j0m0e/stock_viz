@@ -1,4 +1,14 @@
+<% if @user.errors.any? %>
+	<div id="errors">
+		<h3><%= pluralize(@user.errors.count, "error") %> prohibited your user information from being saved. </h3>
 
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li> <%= message %> </li>
+			<% end %>
+		</ul>
+	</div>
+<%end%>
 
 <%= form_for @user do |f| %>
 	

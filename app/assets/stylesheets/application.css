@@ -106,6 +106,10 @@ fieldset input {
 	width: 95px;
 }
 
+#error-login {
+	padding: 10px;
+	text-align: center;
+}
 
 /*
 		User  Page

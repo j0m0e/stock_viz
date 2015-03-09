@@ -1,5 +1,9 @@
 
 
+
+
+
+
 <%= form_tag login_path do %>
 	<%= field_set_tag "Login" do %>
 		<%= text_field_tag :username, nil,  placeholder: "Username" %> <br>
@@ -8,8 +12,6 @@
 		<%= submit_tag 'LOG IN!', class: "submit" %>
 	<% end %>
 
-
-
-
-
 <% end %>
+
+<p id="error-login"><%= @error %></p>

@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 	# before_action :authenticate, only: :destroy
 
 	def new
+		
 	end
 
 	def create
@@ -10,6 +11,7 @@ class SessionsController < ApplicationController
 			session[:current_user_id] = user.id
 			redirect_to user_path(session[:current_user_id])
 		else
+			@error = "Your username or password are incorrect."
 			render :new
 		end
 	end

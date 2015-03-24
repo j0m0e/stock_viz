@@ -142,10 +142,11 @@ header {
 
 #logout-header a {
 	text-decoration: none;
+	color: white;
 }
 
-#logout-header a:visited {
-	color: white;
+#logout-header a:hover {
+	font-weight: 800;
 }
 
 #show-pe-ratio {

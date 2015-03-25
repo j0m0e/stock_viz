@@ -21,7 +21,6 @@ $(function(){
 	console.log('testing yo');
 	$('.search').on('click','#stock_search', getInput);
 	$('#results').on('click', '.choose_search_result', addStock);
-	$('.stock_list').on('click', '.GOOG', testThis);
 	$('#show-pe-ratio').click(getPeRatios);
 });
 
@@ -89,21 +88,6 @@ var makeStockTable = function(stock){
 };
 
 
-var testThis = function(){
-	console.log("i got clicked");
-	var tickerSymbol = ($(this)[0].className);
-	var stockInfo = ($.get('/get_stock/' + tickerSymbol)); 
-	stockInfo.done(function(data){
-		console.log(data);
-		console.log(data.pe_ratio);
-		if(data.pe_ratio > 10){
-			var div = $('<div>').css({'height': '80px', 'width': '80px', 'background': 'purple'});
-			div.appendTo('.pe-ratio-container');
-		}
-	})
-};
-
-
 
 var getPeRatios = function(){
 	$('.pe-ratio-container').empty();
@@ -119,8 +103,15 @@ var getPeRatios = function(){
 
 // renders pe ratios as non-filled in circles via the css stylesheet
 var circleMyRatios = function(stock){
-		var textDiv = $('<div>').text(stock.symbol + " " + stock.pe_ratio)
-												.addClass('text');
+		if (stock.pe_ratio !== "N/A"){
+			var peRatio = parseInt(stock.pe_ratio);
+		}
+		else {
+			var peRatio = stock.pe_ratio;
+		}
+		 
+		var textDiv = $('<div>').text(stock.symbol + " " + peRatio)
+												.addClass('text');	
 		var ratioDiv = $('<div>').addClass('pe-ratio')
 									.prependTo(textDiv);
 		textDiv.appendTo('.pe-ratio-container');
@@ -129,7 +120,7 @@ var circleMyRatios = function(stock){
 
 // fills in circles with appropriate color based on each stock's pe ratio
 var colorMyRatios = function(stock, ratioDiv, textDiv){
-	
+
 	if(stock.pe_ratio === "N/A"){
 		ratioDiv.css({background:'white'});
 	}
